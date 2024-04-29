@@ -17,8 +17,9 @@ class Preview extends StatelessWidget {
       child: const Column(
         children: [
           // Imagen del producto
-          _Product()
-          // Todo: Tallas
+          _Product(),
+          // Tallas
+          _Sizes()
         ],
       ),
     );
@@ -76,6 +77,65 @@ class _Shadow extends StatelessWidget {
               blurRadius: 40,
             )
           ],
+        ),
+      ),
+    );
+  }
+}
+
+// Listado de tallas disponibles
+class _Sizes extends StatelessWidget {
+  const _Sizes({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(top: 10),
+      padding: const EdgeInsets.all(8),
+      child: const Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _Size(7),
+          _Size(7.5),
+          _Size(8),
+          _Size(8.5),
+          _Size(9),
+          _Size(9.5),
+        ],
+      ),
+    );
+  }
+}
+
+// Badge para una talla o número en particular
+class _Size extends StatelessWidget {
+  const _Size(
+    this.size, {
+    super.key,
+  });
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    // Retirar parte deci
+    final sizeFormatted = size.toString().replaceAll('.0', '');
+    return Container(
+      padding: const EdgeInsets.all(8),
+      alignment: Alignment.center,
+      width: 34,
+      height: 34,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Text(
+        sizeFormatted,
+        style: const TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.w700,
+          color: Color(0xfff1a23a),
         ),
       ),
     );
