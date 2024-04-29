@@ -127,15 +127,22 @@ class _Size extends StatelessWidget {
       width: 34,
       height: 34,
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8),
-      ),
+          color: sizeFormatted == '9' ? Colors.orange : Colors.white,
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: sizeFormatted == '9'
+              ? [
+                  const BoxShadow(
+                      color: Color.fromARGB(255, 229, 138, 0),
+                      offset: Offset(0, 5),
+                      blurRadius: 5)
+                ]
+              : null),
       child: Text(
         sizeFormatted,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.w700,
-          color: Color(0xfff1a23a),
+          color: sizeFormatted == '9' ? Colors.white : const Color(0xfff1a23a),
         ),
       ),
     );
