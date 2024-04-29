@@ -36,14 +36,47 @@ class _Product extends StatelessWidget {
     return Container(
       child: const Stack(
         children: [
+          // Sombra
+          Positioned(
+            bottom: 20,
+            left: 30,
+            right: 0,
+            child: _Shadow(),
+          ),
           // Producto
           // La imagen ocupará el 85% del ancho de su contenedor padre
           FractionallySizedBox(
             widthFactor: 0.85,
             child: Image(image: AssetImage('assets/images/azul.png')),
           )
-          // Todo: Sombra
         ],
+      ),
+    );
+  }
+}
+
+// Sombra - Se recomienda que venga adjunta en la imagen
+class _Shadow extends StatelessWidget {
+  const _Shadow({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    // Rotar sombra
+    return Transform.rotate(
+      angle: -0.5,
+      child: Container(
+        height: 120,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(100),
+          boxShadow: const [
+            BoxShadow(
+              color: Color(0xffeaa14e),
+              blurRadius: 40,
+            )
+          ],
+        ),
       ),
     );
   }
