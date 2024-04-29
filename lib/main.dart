@@ -9,8 +9,9 @@ class ShoesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        title: 'Shoes App',
-        debugShowCheckedModeBanner: false,
-        home: HomePage());
+      title: 'Shoes App',
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
+    );
   }
 }

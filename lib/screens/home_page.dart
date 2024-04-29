@@ -8,7 +8,16 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: CustomAppBar(title: 'Para tí'),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            // Barra de título personalizada
+            CustomAppBar(title: 'Para tí'),
+            // Vista previa del producto
+            Preview(),
+          ],
+        ),
+      ),
     );
   }
 }
