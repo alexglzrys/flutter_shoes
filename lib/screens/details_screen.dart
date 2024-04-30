@@ -7,20 +7,44 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         children: [
-          Preview(fullscreen: true),
+          // Vista previa del producto
+          const Preview(fullscreen: true),
           Expanded(
             child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               child: Column(
                 children: [
-                  Description(
+                  // Descripción
+                  const Description(
                     title: 'Nike Air Max 720',
                     content:
                         'El primer Lifestyle Air Max de Nike te aporta estilo, comodidad y gran actitud en el Nike Air Max 720. El diseño se inspira en los íconos del Air Max y muestra la innovación más grande de Nike con una gran ventana y una nueva variedad de colores.',
                   ),
+                  // Precio y botón de compra
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    margin: const EdgeInsets.only(bottom: 16),
+                    child: const Row(
+                      children: [
+                        Text(
+                          '\$180.00',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 18,
+                          ),
+                        ),
+                        Spacer(),
+                        Button(
+                          'Agregar al carrito',
+                          paddingVertical: 10,
+                          paddingHorizontal: 22,
+                        )
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),

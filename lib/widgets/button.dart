@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 
 // Widget para representar un botón
 class Button extends StatelessWidget {
-  const Button(this.text, {super.key});
+  const Button(
+    this.text, {
+    super.key,
+    this.paddingHorizontal = 20,
+    this.paddingVertical = 12,
+  });
   final String text;
+  // Propiedades para personalizar el padding del botón (tamaño)
+  final double paddingHorizontal;
+  final double paddingVertical;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +25,8 @@ class Button extends StatelessWidget {
         splashColor: Colors.white.withOpacity(0.3),
         onTap: () {},
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+          padding: EdgeInsets.symmetric(
+              vertical: paddingVertical, horizontal: paddingHorizontal),
           decoration: BoxDecoration(
             // Si se especifica un color, este se colocará por encima del efecto de ripple
             color: Colors.transparent,
