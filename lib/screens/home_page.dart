@@ -29,7 +29,9 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
+          // Contenedor de precio y agregar al carrito
+          Price(180),
         ],
       ),
     );

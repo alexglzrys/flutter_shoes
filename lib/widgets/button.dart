@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+
+// Widget para representar un botón
+class Button extends StatelessWidget {
+  const Button(this.text, {super.key});
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    // El botón tiene un color de fondo, por tanto hay que definir el color en el widget de Material y el contenendor dejarlo en transparente. De lo contrario el efecto de ripple no será visible
+    return Material(
+      color: Colors.orange,
+      borderRadius: BorderRadius.circular(100),
+      // El contenedor del botón será clickeable
+      child: InkWell(
+        borderRadius: BorderRadius.circular(100),
+        splashColor: Colors.white.withOpacity(0.3),
+        onTap: () {},
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+          decoration: BoxDecoration(
+            // Si se especifica un color, este se colocará por encima del efecto de ripple
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(100),
+          ),
+          child: Text(
+            text,
+            style: const TextStyle(color: Colors.white),
+          ),
+        ),
+      ),
+    );
+  }
+}
