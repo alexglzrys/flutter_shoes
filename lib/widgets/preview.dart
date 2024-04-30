@@ -2,24 +2,35 @@ import 'package:flutter/material.dart';
 
 // Vista previa
 class Preview extends StatelessWidget {
-  const Preview({super.key});
+  const Preview({super.key, this.fullscreen = false});
+  // Determina el comportamiento visual de este widget
+  final bool fullscreen;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 24),
-      padding: const EdgeInsets.all(16),
+      margin: (fullscreen)
+          ? const EdgeInsets.all(0)
+          : const EdgeInsets.symmetric(horizontal: 24),
+      padding: (fullscreen)
+          ? const EdgeInsets.symmetric(vertical: 40, horizontal: 16)
+          : const EdgeInsets.all(16),
       width: double.infinity,
       decoration: BoxDecoration(
         color: const Color(0xffffcf53),
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: (fullscreen)
+            ? const BorderRadius.only(
+                bottomRight: Radius.circular(50),
+                bottomLeft: Radius.circular(50),
+              )
+            : BorderRadius.circular(50),
       ),
-      child: const Column(
+      child: Column(
         children: [
           // Imagen del producto
-          _Product(),
+          const _Product(),
           // Tallas
-          _Sizes()
+          if (!fullscreen) const _Sizes()
         ],
       ),
     );

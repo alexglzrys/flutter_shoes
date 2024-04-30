@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shoes_flutter_app/widgets/widgets.dart';
 
 // Pantalla - Página principal
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
