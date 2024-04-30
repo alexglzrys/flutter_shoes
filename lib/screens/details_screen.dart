@@ -44,7 +44,9 @@ class DetailsScreen extends StatelessWidget {
                         )
                       ],
                     ),
-                  )
+                  ),
+                  // Colores
+                  CustomColors()
                 ],
               ),
             ),
