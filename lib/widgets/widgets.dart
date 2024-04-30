@@ -1,4 +1,5 @@
 // Archivo de barril
+export 'package:shoes_flutter_app/widgets/custom_actions.dart';
 export 'package:shoes_flutter_app/widgets/custom_colors.dart';
 export 'package:shoes_flutter_app/widgets/button.dart';
 export 'package:shoes_flutter_app/widgets/price.dart';

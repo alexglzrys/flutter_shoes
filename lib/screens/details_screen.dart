@@ -46,7 +46,9 @@ class DetailsScreen extends StatelessWidget {
                     ),
                   ),
                   // Colores
-                  CustomColors()
+                  const CustomColors(),
+                  // Acciones
+                  const CustomActions(),
                 ],
               ),
             ),
