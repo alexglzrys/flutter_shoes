@@ -16,6 +16,8 @@ class Preview extends StatelessWidget {
           ? const EdgeInsets.symmetric(vertical: 40, horizontal: 16)
           : const EdgeInsets.all(16),
       width: double.infinity,
+      // Especificar alturas
+      height: (fullscreen) ? 380 : 350,
       decoration: BoxDecoration(
         color: const Color(0xffffcf53),
         borderRadius: (fullscreen)
@@ -26,6 +28,7 @@ class Preview extends StatelessWidget {
             : BorderRadius.circular(50),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // Imagen del producto
           const _Product(),
