@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoes_flutter_app/screens/details_screen.dart';
-//import 'package:shoes_flutter_app/screens/home_screen.dart';
+import 'package:shoes_flutter_app/screens/home_screen.dart';
 
 void main() => runApp(const ShoesApp());
 
@@ -9,10 +9,14 @@ class ShoesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Shoes App',
       debugShowCheckedModeBanner: false,
-      home: DetailsScreen(),
+      initialRoute: 'home',
+      routes: {
+        'home': (_) => const HomeScreen(),
+        'details': (_) => const DetailsScreen(),
+      },
     );
   }
 }

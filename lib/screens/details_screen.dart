@@ -19,7 +19,10 @@ class DetailsScreen extends StatelessWidget {
                 top: 50,
                 left: 8,
                 child: FloatingActionButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    // Navegar a la pantalla anterior
+                    Navigator.pop(context);
+                  },
                   elevation: 0,
                   highlightElevation: 0,
                   backgroundColor: Colors.transparent,

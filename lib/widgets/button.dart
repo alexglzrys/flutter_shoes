@@ -7,8 +7,11 @@ class Button extends StatelessWidget {
     super.key,
     this.paddingHorizontal = 20,
     this.paddingVertical = 12,
+    this.fn,
   });
   final String text;
+  // tarea opcional a ejecutar al presionar el botón
+  final Function? fn;
   // Propiedades para personalizar el padding del botón (tamaño)
   final double paddingHorizontal;
   final double paddingVertical;
@@ -23,7 +26,11 @@ class Button extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(100),
         splashColor: Colors.white.withOpacity(0.3),
-        onTap: () {},
+        onTap: () {
+          if (fn != null) {
+            fn!();
+          }
+        },
         child: Container(
           padding: EdgeInsets.symmetric(
               vertical: paddingVertical, horizontal: paddingHorizontal),

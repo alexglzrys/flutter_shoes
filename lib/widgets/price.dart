@@ -28,7 +28,13 @@ class Price extends StatelessWidget {
             ),
           ),
           // Botón de compra
-          const Button('Agregar al carrito')
+          Button(
+            'Más información',
+            fn: () {
+              // Navegar a la pantalla asociada con la ruta 'details'
+              Navigator.pushNamed(context, 'details');
+            },
+          )
         ],
       ),
     );
