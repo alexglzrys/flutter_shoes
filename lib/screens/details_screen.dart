@@ -10,8 +10,27 @@ class DetailsScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          // Vista previa del producto
-          const Preview(fullscreen: true),
+          Stack(
+            children: [
+              // Vista previa del producto
+              const Preview(fullscreen: true),
+              // Botón para regresar a la pantalla anterior
+              Positioned(
+                top: 50,
+                left: 8,
+                child: FloatingActionButton(
+                  onPressed: () {},
+                  elevation: 0,
+                  highlightElevation: 0,
+                  backgroundColor: Colors.transparent,
+                  child: const Icon(
+                    Icons.chevron_left,
+                    size: 36,
+                  ),
+                ),
+              ),
+            ],
+          ),
           Expanded(
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
