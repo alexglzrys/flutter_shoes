@@ -50,11 +50,14 @@ class _Product extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Solicitar la instancia del provider encargado de la gestión de los productos
+    final productProvider = Provider.of<ProductProvider>(context);
+
     return Container(
-      child: const Stack(
+      child: Stack(
         children: [
           // Sombra
-          Positioned(
+          const Positioned(
             bottom: 20,
             left: 30,
             right: 0,
@@ -64,7 +67,7 @@ class _Product extends StatelessWidget {
           // La imagen ocupará el 85% del ancho de su contenedor padre
           FractionallySizedBox(
             widthFactor: 0.85,
-            child: Image(image: AssetImage('assets/images/azul.png')),
+            child: Image(image: AssetImage(productProvider.image)),
           )
         ],
       ),
