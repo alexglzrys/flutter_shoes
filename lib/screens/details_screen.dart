@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoes_flutter_app/widgets/widgets.dart';
+import 'package:animate_do/animate_do.dart';
 
 // Detalle del producto seleccionado
 class DetailsScreen extends StatelessWidget {
@@ -58,20 +59,24 @@ class DetailsScreen extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: 24),
                     margin: const EdgeInsets.only(bottom: 16),
-                    child: const Row(
+                    child: Row(
                       children: [
-                        Text(
+                        const Text(
                           '\$180.00',
                           style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 18,
                           ),
                         ),
-                        Spacer(),
-                        Button(
-                          'Agregar al carrito',
-                          paddingVertical: 10,
-                          paddingHorizontal: 22,
+                        const Spacer(),
+                        // Animar el botón de agregar el carrito
+                        Bounce(
+                          duration: const Duration(seconds: 1),
+                          child: const Button(
+                            'Agregar al carrito',
+                            paddingVertical: 10,
+                            paddingHorizontal: 22,
+                          ),
                         )
                       ],
                     ),
