@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoes_flutter_app/helpers/helpers.dart';
 import 'package:shoes_flutter_app/widgets/widgets.dart';
 import 'package:animate_do/animate_do.dart';
 
@@ -8,6 +9,9 @@ class DetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Cambiar la barra de estado a color osucro
+    changeStatusBarLight();
+
     return Scaffold(
       body: Column(
         children: [
@@ -32,6 +36,8 @@ class DetailsScreen extends StatelessWidget {
                   onPressed: () {
                     // Navegar a la pantalla anterior
                     Navigator.pop(context);
+                    // Cuando se regresa a una pantalla anterior, el build no se vuelve a ejecutar por que la pantalla o widget ya existe y se enceuntra apilado en el historial de navegación
+                    changeStatusBarDark();
                   },
                   elevation: 0,
                   highlightElevation: 0,

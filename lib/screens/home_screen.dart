@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shoes_flutter_app/helpers/helpers.dart';
 import 'package:shoes_flutter_app/widgets/widgets.dart';
 
 // Pantalla - Página principal
@@ -7,6 +8,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Cambiar la barra de estado a color osucro
+    changeStatusBarDark();
+
     return const Scaffold(
       body: Column(
         children: [
