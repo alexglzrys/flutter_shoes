@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shoes_flutter_app/providers/product_provider.dart';
 
 // Vista previa
 class Preview extends StatelessWidget {
@@ -133,30 +135,45 @@ class _Size extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Retirar parte deci
+    // Recuoperar instancia de mi provider referente al producto
+    final productProvider = Provider.of<ProductProvider>(context);
+    // Retirar parte decimal
     final sizeFormatted = size.toString().replaceAll('.0', '');
-    return Container(
-      padding: const EdgeInsets.all(8),
-      alignment: Alignment.center,
-      width: 34,
-      height: 34,
-      decoration: BoxDecoration(
-          color: sizeFormatted == '9' ? Colors.orange : Colors.white,
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: sizeFormatted == '9'
-              ? [
-                  const BoxShadow(
-                      color: Color.fromARGB(255, 229, 138, 0),
-                      offset: Offset(0, 5),
-                      blurRadius: 5)
-                ]
-              : null),
-      child: Text(
-        sizeFormatted,
-        style: TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.w700,
-          color: sizeFormatted == '9' ? Colors.white : const Color(0xfff1a23a),
+    return GestureDetector(
+      onTap: () {
+        // cambiar la talla seleccionada
+        productProvider.size = size;
+      },
+      child: Container(
+        padding: const EdgeInsets.all(8),
+        alignment: Alignment.center,
+        width: 34,
+        height: 34,
+        decoration: BoxDecoration(
+            color:
+                sizeFormatted == '${productProvider.size}'.replaceAll('.0', '')
+                    ? Colors.orange
+                    : Colors.white,
+            borderRadius: BorderRadius.circular(8),
+            boxShadow:
+                sizeFormatted == '${productProvider.size}'.replaceAll('.0', '')
+                    ? [
+                        const BoxShadow(
+                            color: Color.fromARGB(255, 229, 138, 0),
+                            offset: Offset(0, 5),
+                            blurRadius: 5)
+                      ]
+                    : null),
+        child: Text(
+          sizeFormatted,
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w700,
+            color:
+                sizeFormatted == '${productProvider.size}'.replaceAll('.0', '')
+                    ? Colors.white
+                    : const Color(0xfff1a23a),
+          ),
         ),
       ),
     );
